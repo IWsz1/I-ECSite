@@ -1,0 +1,189 @@
+/* whole */
+/* Default */
+/* デフォルトはずしコピー用 */
+body{
+  margin: 0;
+}
+h1,h2,p{
+  /* デフォルトの太字解除 */
+  font-weight: normal;
+  margin: 0;
+}
+/* デフォルトでアルファベットのベースラインを下に揃えるため外す */
+img{
+  vertical-align: bottom;
+}
+
+/* デフォルト設定今回用 */
+ul{
+  /* ulの初めの点をなくす */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a{
+  /* リンクにつく下線を撮る */
+  text-decoration: none;
+  /* リンクにつく青色でなく元の色に */
+  color: inherit;
+  /* カーソル通過時の半透明になるスピードのゆっくり */
+  transition: opacity 0.3s;
+}
+/* リンクの上にカーソルがあると半透明に */
+a:hover{
+  opacity: 0.5;
+}
+/* 左右の余白作り */
+.container{
+  margin: 0 16px;
+  /* 確認用枠線 */
+  /* outline: solid red; */
+}
+/* body二つ目 */
+body{
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header */
+header{
+  /* 上下の余白作り */
+  padding: 8px 0;
+}
+header .container{
+/* 中にある子要素を並列なものと認識(指定しないと横並び)にする */
+  display: flex;
+  /* 水平方向に合わせて間を大きく開ける */
+  justify-content: space-between;
+  /* 高さを中央に揃える */
+  align-items: center;
+}
+/* 800px（パソコン版）までは検索機能を表示させない */
+header form{
+  display: none;
+}
+header input{
+  all: unset;
+  border-bottom:1px solid #aaa ;
+  padding: 4px;
+  width: 300px;
+}
+header button{
+all: unset;
+cursor: pointer;
+}
+header ul{
+  display: flex;
+}
+header li a{
+  display: flex;
+  /* 並列情報を上から下に */
+  flex-direction: column;
+  font-size: 12px;
+  text-align: center;
+}
+header li a i{
+  font-size: 18px;
+}
+/* liの次のliにのみ指定 */
+header li + li{
+margin-left: 8px;
+}
+
+/* hero */
+.hero img{
+  width: 100%;
+  height: 400px;
+  /* 100&指定の横に合わせて縦は400pxにして、尚且つ縦横比を合わせるためにアップやルーズにする */
+  object-fit: cover;
+}
+
+/* products */
+.products{
+  padding: 80px 0;
+}
+.products ul{
+  margin-top: 32px;
+  display: flex;
+  /* 横並びがいっぱいになったら折り返し */
+  flex-wrap: wrap;
+  /* liの間隔 */
+  gap: 16px;
+}
+.products li{
+  width: calc((100% - 16px) / 2);
+  /* 確認用枠線 */
+  /* outline:2px solid blue; */
+}
+.products li a{
+  /* カーソルが通ると中のh2やpも半透明になるように */
+  display: block;
+}
+.products li img{
+  width: 100%;
+}
+.products li h2{
+  font-size: 16px;
+  margin-top: 8px;
+}
+.products .more{
+  /* marginを設定する為 */
+  display: block;
+  width: 70%;
+  /* 要素の高さ */
+  line-height: 48px;
+  border: 2px solid black;
+  /* 要素ないの文字の位置 */
+  text-align: center;
+  /* 左右のmarginの平等化 */
+  margin:32px auto 0 ;
+}
+
+/* footer */
+footer {
+  background: #4c4948;
+  /* outline: solid 2px red; */
+  padding: 16px;
+  color: #eee;
+  }
+footer .container{
+  /* 中にある子要素を並列なものと認識(指定しないと横並び)にする */
+  display: flex;
+  /* 水平方向に合わせて間を大きく開ける */
+  justify-content: space-between;
+  /* 高さを中央に揃える */
+  align-items: center;
+  line-height: 48px;
+  }
+footer ul{
+  /* 中にある子要素を並列なものと認識(指定しないと横並び)にする */
+  display: flex;
+  /* 高さを中央に揃える */
+  align-items: center;
+  gap: 16px;
+}
+footer li{
+  font-size: 24px;
+}
+
+/* medium screen */
+@media(min-width:600px){
+  .products li{
+    width: calc((100% - 32px) / 3);
+    
+  }
+}
+/* large screen */
+@media(min-width:800px){ 
+  .container{
+    /* 左右の余白作り */
+    width: calc(100% - 32px);
+    /* containerを中央揃え */
+    margin: 0 auto;
+    /* containerの最大幅を作りサイドの余白が800以上は増える設定に */
+    max-width: 800px;
+  }
+  /* パソコン版でのみ検索機能表示 */
+  header form{
+    display: block;
+  }
+}
